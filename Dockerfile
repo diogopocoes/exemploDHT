@@ -90,11 +90,11 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 #    chmod 400 /var/www/.ssh/tome_id_rsa
 
 # Set up Git.
-RUN git remote add origin https://github.com/diogopocoes/exemploDHT && \
-    git branch --set-upstream-to=origin/master master && \
-    git checkout master && \
-    git config user.email "diogo.pocoes@gmail.com" && \
-    git config user.name "Diogo Novais"
+#RUN git remote add origin https://github.com/diogopocoes/exemploDHT && \
+#    git branch --set-upstream-to=origin/master master && \
+#    git checkout master && \
+#    git config user.email "diogo.pocoes@gmail.com" && \
+#    git config user.name "Diogo Novais"
 
 # Change file permissions.
 RUN chown -R www-data:www-data content config html
