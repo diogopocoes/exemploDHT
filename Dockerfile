@@ -97,4 +97,4 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 #    git config user.name "Diogo Novais"
 
 # Change file permissions.
-RUN chown -R www-data:www-data content config html
+#RUN chown -R www-data:www-data content config html
