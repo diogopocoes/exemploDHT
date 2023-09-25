@@ -90,11 +90,11 @@ RUN mkdir /var/www/.ssh && \
     chmod 400 /var/www/.ssh/tome_id_rsa
 
 # Set up Git.
-RUN git remote add origin <your origin> && \
+RUN git remote add origin https://github.com/diogopocoes/exemploDHT && \
     git branch --set-upstream-to=origin/master master && \
     git checkout master && \
-    git config user.email "your@name.com" && \
-    git config user.name "Example Name"
+    git config user.email "diogo.pocoes@gmail.com" && \
+    git config user.name "Diogo Novais"
 
 # Change file permissions.
 RUN chown -R www-data:www-data content config html web/sites/default/files .git /var/www/.ssh
