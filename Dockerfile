@@ -75,19 +75,19 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
 # Install site.
-RUN composer install && \
-    drush tome:install -y
+#RUN composer install && \
+#    drush tome:install -y
 
 # Set an admin password.
-RUN drush upwd admin $(cat /etc/secrets/tome_pass) -y && \
-    git checkout content
+#RUN drush upwd admin $(cat /etc/secrets/tome_pass) -y && \
+#    git checkout content
 
 # Set up SSH keys.
-RUN mkdir /var/www/.ssh && \
-    ssh-keyscan github.com >> /var/www/.ssh/known_hosts && \
-    cp /etc/secrets/tome_id_rsa /var/www/.ssh/tome_id_rsa && \
-    echo "" >> /var/www/.ssh/tome_id_rsa && \
-    chmod 400 /var/www/.ssh/tome_id_rsa
+#RUN mkdir /var/www/.ssh && \
+#    ssh-keyscan github.com >> /var/www/.ssh/known_hosts && \
+#    cp /etc/secrets/tome_id_rsa /var/www/.ssh/tome_id_rsa && \
+#    echo "" >> /var/www/.ssh/tome_id_rsa && \
+#    chmod 400 /var/www/.ssh/tome_id_rsa
 
 # Set up Git.
 RUN git remote add origin https://github.com/diogopocoes/exemploDHT && \
@@ -97,4 +97,4 @@ RUN git remote add origin https://github.com/diogopocoes/exemploDHT && \
     git config user.name "Diogo Novais"
 
 # Change file permissions.
-RUN chown -R www-data:www-data content config html web/sites/default/files .git /var/www/.ssh
+RUN chown -R www-data:www-data content config html
