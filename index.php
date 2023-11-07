@@ -1,5 +1,4 @@
 <?php
-//header('Content-Type: text/plain');
-echo "<p>Funcionou</p>";
-echo "<p>Linha 2</p>";
+header('Content-Type: application/json');
+echo '{"nome":"Diogo Novais", "email":"diogo.pocoes@gmail.com"}';
 ?>
